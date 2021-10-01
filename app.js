@@ -20,7 +20,10 @@ const songRouter = require("./routes/song.routes");
 app.use("/api", songRouter);            // <== UPDATE
 
 const taskRouter = require("./routes/task.routes");
-app.use("/api",isAuthenticated, taskRouter);            // <== UPDATE
+app.use("/api",isAuthenticated, taskRouter);    
+
+
+// <== UPDATE
 ////
 /* 
 app.use((req, res, next) => {
