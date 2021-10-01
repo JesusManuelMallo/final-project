@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const axios = require("axios")
 
 const Song = require("../models/Song.model");
 const Task = require("../models/Task.model");
@@ -13,6 +14,12 @@ router.post("/songs", (req, res, next) => {
     .then((response) => res.json(response))
     .catch((err) => res.json(err));
 });
+
+router.get("/prueba", (req, res, next)=>{
+  axios.get("https://openwhyd.org/u/61561e4608ced3543d922165?format=json")
+  .then (response => res.json(response.data))
+  .catch(error => console.log(error))
+})
 
 //  GET /api/projects -  Retrieves all of the projects
 router.get("/songs", (req, res, next) => {
