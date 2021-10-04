@@ -64,9 +64,14 @@ router.post("/removefavourite", (req, res, next) => {
   console.log("REMOVE FAVOURITE");
   console.log("RQEUEST DOT BODY!!", req.body);
   User.findByIdAndUpdate(req.body.user._id, {
-    $pull: { favourites: req.body.song._id },
-  }).then((data) => {
+    $pull: { favourites: req.body._id },
+  }, {
+    new:true
+  })
+  .then((data) => {
     res.json(data);
+
+
     console.log("REMOVEEED DE DATA", data);
   });
 });
