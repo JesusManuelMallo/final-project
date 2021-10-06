@@ -44,6 +44,7 @@ router.post("/favourite", (req, res, next) => {
   });
 });
 
+
 router.post("/getfavourites", (req, res, next) => {
   console.log("VFAOIJF", req.body);
   User.findById(req.body.user._id).then((response) => {
